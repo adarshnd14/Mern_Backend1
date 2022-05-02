@@ -8,8 +8,8 @@ productRoute.post('/addproduct', adminAuth.adminAuth, productControl.addproduct)
 //getproduct route
 productRoute.get('/product', productControl.getproduct)
 //editproduct route
-productRoute.put('/editproduct',adminAuth.adminAuth, productControl.editproduct)
+productRoute.put('/editproduct', adminAuth.adminAuth, productControl.editproduct)
 //deleteproduct route
-productRoute.delete('/deleteproduct',adminAuth.adminAuth, productControl.deleteproduct)
+productRoute.delete('/deleteproduct', adminAuth.adminAuth, productControl.deleteproduct)
 
 module.exports = productRoute

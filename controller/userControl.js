@@ -24,7 +24,7 @@ const userRegister = async (req, res, next) => {
         const saltRounds = 10
         const salt = await bcrypt.genSalt(saltRounds)
         const passHash = await bcrypt.hash(uPassword, salt)
-        console.log(passHash);
+        // console.log(passHash);
 
         //inserting data using try catch to database 
         try {
@@ -47,15 +47,12 @@ const userRegister = async (req, res, next) => {
     }
 }
 
-
-
 //login
 const userLogin = async (req, res, next) => {
     const { uEmail, uPassword } = req.body
     //Authentication
     try {
         const userValid = await registerSchema.findOne({ uEmail })
-        const role = userValid.uRole
         //if valid login credentials 
         if (userValid) {
             //comparing hased password
@@ -63,6 +60,7 @@ const userLogin = async (req, res, next) => {
             //if hased password matchs
             if (pass) {
                 //jwt tocken generation
+                const role = userValid.uRole
                 const payload = { uEmail, uPassword, role }
                 const token = jwt.sign(payload, process.env.SECRET_KEY)
                 // console.log(token);

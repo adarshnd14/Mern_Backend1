@@ -2,13 +2,14 @@ const productSchema = require('../models/productSchema.js')
 
 //adding product
 const addproduct = async (req, res, next) => {
-    const { pName, pPrice, pBrand, pDesc } = req.body
+    const { pName, pPrice, pBrand, pDesc, pImg } = req.body
     try {
         const prodData = await productSchema.insertMany({
             pName,
             pPrice,
             pBrand,
-            pDesc
+            pDesc,
+            pImg
         })
         res.status(200).json({
             error: false,
@@ -36,12 +37,12 @@ const getproduct = async (req, res, next) => {
 
 //Edit product
 const editproduct = async (req, res, next) => {
-    const { pName, pPrice, pBrand, pDesc } = req.body
+    const { pName, pPrice, pBrand, pDesc, pImg } = req.body
     const { _id } = req.query
     try {
         const prodData = await productSchema.updateOne({_id:_id},{
             $set:{
-                pName, pPrice, pBrand, pDesc
+                pName, pPrice, pBrand, pDesc, pImg
             }
         })
         res.status(200).json({
