@@ -19,7 +19,6 @@ const productSchema = new mongoose.Schema({
     },
     pImg:{
         type:String,
-        
     }
 })
 
