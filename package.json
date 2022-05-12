@@ -4,12 +4,14 @@
   "description": "Fullstack Project",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js", 
-    "test": "echo \"Error: no test specified\" && exit 1" 
+    "start": "node index.js",
+    "debug": "node --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adarsh N D",
   "license": "ISC",
   "dependencies": {
+    "0x": "^5.2.1",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
